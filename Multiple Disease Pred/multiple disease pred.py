@@ -13,7 +13,6 @@ from streamlit_option_menu import option_menu
 # loading the saved models
 
 import os
-import pickle
 
 # Get the path to the current script
 script_path = os.path.dirname(os.path.abspath(__file__))
