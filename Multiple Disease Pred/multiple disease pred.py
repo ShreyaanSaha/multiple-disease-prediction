@@ -9,22 +9,23 @@ import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-st.markdown("""
-    <style>
-    .reportview-container {
-        background: #004744
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('C:/Users/SHREYAAN/Desktop/Data Science Projects/Multiple Disease Pred/Models/diabetes_model.sav', 'rb'))
+import os
+import pickle
 
-heart_disease_model = pickle.load(open('C:/Users/SHREYAAN/Desktop/Data Science Projects/Multiple Disease Pred/Models/heart_disease_model.sav','rb'))
+# Get the path to the current script
+script_path = os.path.dirname(os.path.abspath(__file__))
 
-parkinsons_model = pickle.load(open('C:/Users/SHREYAAN/Desktop/Data Science Projects/Multiple Disease Pred/Models/parkinsons_model.sav', 'rb'))
+# Load models using relative paths
+diabetes_model_path = os.path.join(script_path, 'Models', 'diabetes_model.sav')
+heart_disease_model_path = os.path.join(script_path, 'Models', 'heart_disease_model.sav')
+parkinsons_model_path = os.path.join(script_path, 'Models', 'parkinsons_model.sav')
+
+diabetes_model = pickle.load(open(diabetes_model_path, 'rb'))
+heart_disease_model = pickle.load(open(heart_disease_model_path, 'rb'))
+parkinsons_model = pickle.load(open(parkinsons_model_path, 'rb'))
 
 
 
